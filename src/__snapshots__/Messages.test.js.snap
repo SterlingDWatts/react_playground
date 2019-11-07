@@ -6,7 +6,7 @@ exports[`renders the UI as expected 1`] = `
 >
   Messages
   <div
-    className="unread_count"
+    className="unread_count badge dumb"
   >
     4
   </div>
