@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import Messages from './Messages';
+import TheDate from './state/TheDate';
+import Counter from './state/Counter';
+import HelloWorld from './state-drills/HelloWorld';
 import './App.css';
 
 class App extends Component {
@@ -7,8 +10,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>YOUR APPLICATION NAME!</h1>
-        <Messages name="Messages" unread={0}/>
-        <Messages name="Notifications" unread={10}/>
+        <HelloWorld/>
       </div>
     );
   }
