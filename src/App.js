@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
-import RouletteGun from './state-drills/RouletteGun';
-import './App.css';
+import Accordian from './state-drills/Accordian';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <h1>YOUR APPLICATION NAME!</h1>
-        <RouletteGun/>
-      </div>
-    );
-  }
+    render() {
+        return (
+        <div className="App">
+            <Accordian />
+        </div>
+        );
+    }
 }
 
 export default App;
