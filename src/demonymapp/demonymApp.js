@@ -4,6 +4,7 @@ import Demonym from './demonym';
 import CountrySelector from './countrySelector';
 
 class DemonymApp extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -11,17 +12,11 @@ class DemonymApp extends Component {
             selected: null
         };
     }
-    setSelected(selected) {
-        this.setState({
-            selected
-        });
-    }
+
     componentDidMount() {
         fetch('https://country.register.gov.uk/recordsWRONG.json?page-size=5000')
             .then(response => {
-                console.log('About to check for errors');
                 if(!response.ok) {
-                    console.log('an error did occur, let\'s throw an error.');
                     throw new Error('Something went wrong');
                 }
                 return response;
@@ -37,6 +32,13 @@ class DemonymApp extends Component {
                 console.log('Handling the error here.', err);
             })
     }
+
+    setSelected(selected) {
+        this.setState({
+            selected
+        });
+    }
+
     render() {
         const demon = this.state.selected
             ? <Demonym name={this.state.selected['citizen-names']} country={this.state.selected.name}/>
