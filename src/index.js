@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import RegistrationForm from './registrationForm/registrationForm';
+import App from './playingwithdanger/App';
 
 ReactDOM.render(
-    <RegistrationForm />,
+    <App />,
     document.getElementById('root')
 );
