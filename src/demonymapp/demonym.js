@@ -1,11 +1,21 @@
 import React from 'react';
 import './demonym.css';
 
-export default function Demonym(props) {
+function anOrA(string) {
+	const firstLetter = string.split('')[0].toLowerCase();
+	if (firstLetter.match(/[aeiou]/g)) {
+		return 'An';
+	} else {
+		return 'A';
+	}
+}
 
-    return (
-        <div className="demonym">
-            A {props.name} comes from {props.country}
-        </div>
-    );
+export default function Demonym(props) {
+	
+	return (
+		<div className='demonym'>
+			{ anOrA(props.name) } { props.name } comes from { props.country }
+		</div>
+	);
+
 }

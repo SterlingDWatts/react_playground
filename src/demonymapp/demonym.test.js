@@ -4,9 +4,11 @@ import Demonym from './demonym';
 
 describe(`Demonym Component`, () => {
 
-    it('renders without errors', () => {
-        const div = document.createElement('div');
-        ReactDOM.render(<Demonym />, div);
-        ReactDOM.unmountComponentAtNode(div);
-    })
+	it('renders without crashing', () => {
+		const div = document.createElement('div');
+		ReactDOM.render(<Demonym />, div);
+		ReactDOM.unmountComponentAtNode(div);
+	})
+
 })
+

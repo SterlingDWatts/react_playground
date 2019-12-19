@@ -4,9 +4,11 @@ import CountrySelector from './countrySelector';
 
 describe(`CountrySelector Component`, () => {
 
-    it('renders without errors', () => {
-        const div = document.createElement('div');
-        ReactDOM.render(<CountrySelector/>, div);
-        ReactDOM.unmountComponentAtNode(div);
-    })
+	it('renders without crashing', () => {
+		const div = document.createElement('div');
+		ReactDOM.render(<CountrySelector />, div);
+		ReactDOM.unmountComponentAtNode(div);
+	})
+
 })
+
