@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
 import ValidationError from '../validationError/validationError';
 
-export default class RegistrationForm extends Component {
+class RegistrationForm extends Component {
 
     constructor(props) {
         super(props);
-        this.state={
+        this.state = {
             name: {
                 value: '',
-                touched: false,
+                touched: false
             },
             password: {
                 value: '',
-                touched: false,
+                touched: false
             },
             repeatPassword: {
                 value: '',
-                touched: false,
-            },
+                touched: false
+            }
         }
     }
 
@@ -33,7 +33,7 @@ export default class RegistrationForm extends Component {
         this.setState({repeatPassword: {value: repeatPassword, touched: true}});
     }
 
-    validateName(fieldValue) {
+    validateName() {
         const name = this.state.name.value.trim();
         if (name.length === 0) {
             return 'Name is required';
@@ -43,11 +43,11 @@ export default class RegistrationForm extends Component {
     }
 
     validatePassword() {
-        const password =  this.state.password.value.trim();
+        const password = this.state.password.value.trim();
         if (password.length === 0) {
             return 'Password is required';
         } else if (password.length < 6 || password.length > 72) {
-            return 'Password must be between 6 and 72 characters';
+            return 'Password must be between 6 and 72 characters'
         } else if (!password.match(/[0-9]/)) {
             return 'Password must contain at least one number';
         }
@@ -70,43 +70,38 @@ export default class RegistrationForm extends Component {
         console.log('Password: ', password.value);
         console.log('Repeat Password: ', repeatPassword.value);
 
-        // Potentially submit these values to the server here.
+        // potentially submit these values to the server here
     }
 
     render() {
-
-        const nameError = this.validateName();
-        const passwordError = this.validatePassword();
-        const repeatPasswordError = this.validateRepeatPassword();
-
         return (
-            <form className='registration' onSubmit={e => this.handleSubmit(e)}>
+            <form className='Registration' onSubmit={e => this.handleSubmit(e)} >
                 <h2>Register</h2>
                 <div className='registration__hint'>* required field</div>
                 <div className='form-group'>
                     <label htmlFor='name'>Name *</label>
-                    <input 
+                    <input
                         type='text' 
                         className='registration__control'
                         name='name'
-                        id='name'
+                        id='name' 
                         onChange={e => this.updateName(e.target.value)}
                     />
                     {this.state.name.touched && (
-                        <ValidationError message={nameError} />
+                        <ValidationError message={this.validateName()} />
                     )}
                 </div>
                 <div className='form-group'>
                     <label htmlFor='password'>Password *</label>
-                    <input 
-                        type='password' 
-                        className='registration__control'
+                    <input
+                        type='password'
+                        className='registration__control' 
                         name='password'
                         id='password'
                         onChange={e => this.updatePassword(e.target.value)}
                     />
                     {this.state.password.touched && (
-                        <ValidationError message={passwordError} />
+                        <ValidationError message={this.validatePassword()} />
                     )}
                     <div className='registration__hint'>6 to 72 characters, must include a number</div>
                 </div>
@@ -116,11 +111,11 @@ export default class RegistrationForm extends Component {
                         type='password'
                         className='registration__control'
                         name='repeatPassword'
-                        id='repeatPassword'
+                        id='repeatPassword' 
                         onChange={e => this.updateRepeatPassword(e.target.value)}
                     />
                     {this.state.repeatPassword.touched && (
-                        <ValidationError message={repeatPasswordError} />
+                        <ValidationError message={this.validateRepeatPassword()} />
                     )}
                 </div>
 
@@ -143,4 +138,7 @@ export default class RegistrationForm extends Component {
             </form>
         );
     }
+
 }
+
+export default RegistrationForm;
